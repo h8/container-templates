@@ -1,0 +1,22 @@
+// For format details, see https://aka.ms/vscode-remote/devcontainer.json or the definition README at
+// https://github.com/microsoft/vscode-dev-containers/tree/master/containers/ubuntu-18.04-git
+{
+    "name": "Generic Ubuntu for dev container",
+    "dockerFile": "Dockerfile",
+
+    "runArgs": [
+        "-v","/var/run/docker.sock:/var/run/docker.sock",
+
+        "-v", "${env:HOME}${env:USERPROFILE}/.ssh:/home/vscode/.ssh-localhost:ro",
+
+        "-u", "1000"
+    ],
+
+    "appPort": [8080],
+
+    "postCreateCommand": "mkdir -p ~/.ssh && cp -r ~/.ssh-localhost/* ~/.ssh && chmod 700 ~/.ssh && chmod 600 ~/.ssh/*",
+
+    "extensions": [
+        "ms-azuretools.vscode-docker"
+    ]
+}
