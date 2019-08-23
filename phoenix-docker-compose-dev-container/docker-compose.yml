@@ -1,0 +1,29 @@
+version: "3.3"
+
+services:
+  phoenix:
+    user: "vscode"
+
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    ports:
+      - 4000:4000
+    
+    volumes:
+      - ..:/workspace
+
+      - type: bind
+        source: ~/.ssh
+        target: /home/vscode/.ssh-localhost
+        read_only: true 
+
+      - /var/run/docker.sock:/var/run/docker.sock
+
+    depends_on:
+      - db
+
+    command: sleep infinity 
+  db:
+    image: "postgres:latest"

@@ -1,0 +1,24 @@
+// For format details, see https://aka.ms/vscode-remote/devcontainer.json or the definition README at
+// https://github.com/microsoft/vscode-dev-containers/tree/master/containers/docker-existing-docker-compose
+{
+	"name": "Phoenix with Postgres",
+
+	"dockerComposeFile": [
+		"docker-compose.yml"
+	],
+
+	"service": "phoenix",
+
+	"workspaceFolder": "/workspace",
+
+	"postCreateCommand": "mkdir -p ~/.ssh && cp -r ~/.ssh-localhost/* ~/.ssh && chmod 700 ~/.ssh && chmod 600 ~/.ssh/*",
+
+	"extensions": [
+		"pgourlain.erlang",
+        "NigelRook.vscode-linter-erlc",
+		"ms-azuretools.vscode-docker",
+		"jakebecker.elixir-ls",
+		"benvp.vscode-hex-pm-intellisense",
+		"mjmcloug.vscode-elixir"
+	]
+}
