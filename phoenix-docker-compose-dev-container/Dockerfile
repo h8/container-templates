@@ -26,7 +26,6 @@ USER vscode
 WORKDIR /home/vscode
 RUN mix local.hex --force \
     && mix local.rebar --force \
-    && mix archive.install --force \
-       https://github.com/phoenixframework/archives/raw/master/phx_new.ez
+    && mix archive.install hex phx_new --force
 
 ENV DEBIAN_FRONTEND=
