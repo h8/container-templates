@@ -19,6 +19,9 @@
 		"ms-azuretools.vscode-docker",
 		"jakebecker.elixir-ls",
 		"benvp.vscode-hex-pm-intellisense",
-		"mjmcloug.vscode-elixir"
+		"phoenixframework.phoenix",
+		"saratravi.elixir-formatter",
+		"mtxr.sqltools",
+		"humao.rest-client"
 	]
 }
