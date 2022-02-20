@@ -27,3 +27,5 @@ services:
     command: sleep infinity
   db:
     image: "postgres:latest"
+    environment:
+      POSTGRES_HOST_AUTH_METHOD: trust
