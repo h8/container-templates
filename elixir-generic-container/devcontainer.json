@@ -1,0 +1,32 @@
+// For format details, see https://aka.ms/vscode-remote/devcontainer.json or the definition README at
+// https://github.com/microsoft/vscode-dev-containers/tree/master/containers/docker-existing-docker-compose
+{
+	"name": "Elixir",
+
+	"build": {
+		"dockerfile": "Dockerfile"
+	},
+
+	"runArgs": [
+        "-v","/var/run/docker.sock:/var/run/docker.sock",
+
+        "-v", "${env:HOME}${env:USERPROFILE}/.ssh:/home/vscode/.ssh-localhost:ro",
+
+        "-u", "1000"
+    ],
+
+	"postCreateCommand": "mkdir -p ~/.ssh && cp -r ~/.ssh-localhost/* ~/.ssh && chmod 700 ~/.ssh && chmod 600 ~/.ssh/*",
+
+	"extensions": [
+		"ms-azuretools.vscode-docker",
+
+		"jakebecker.elixir-ls",
+		"saratravi.elixir-formatter",
+		"benvp.vscode-hex-pm-intellisense",
+		"sztheory.hex-lens",
+		"pantajoe.vscode-elixir-credo",
+
+		"pgourlain.erlang",
+		"erlang-ls.erlang-ls"
+	]
+}
